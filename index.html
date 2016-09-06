@@ -1,16 +1,26 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <title>Pa~paya</title>
-  <meta name="description" content="Pa paya-paya-paya pa~paya">
+	<title>Pa~paya</title>
+	<meta name="description" content="Pa paya-paya-paya pa~paya">
 
+	<link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 
 <body>
-	<audio autoplay>
+	<audio id="audio">
 		<source src="pa-paya.mp3" type="audio/mpeg">
 	</audio>
+	<div class="art-container">
+		<img src="official-art.png" class="art" width="599" height="312">
+	</div>
+	
+	<script>
+		var audio = document.getElementById("audio");
+		audio.volume = 0.25;
+		audio.play();
+	</script>
 </body>
 </html>
