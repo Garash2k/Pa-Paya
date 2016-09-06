@@ -1,0 +1,21 @@
+html
+{
+	background-color: pink;
+}
+
+html, body, .art-container
+{
+	height: 100%;
+	margin: 0;
+}
+
+.art-container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.art
+{
+}
