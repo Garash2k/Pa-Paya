@@ -28,7 +28,7 @@ html, body, .art-container
 	position: absolute;
 	top: 0;
 	left: 0;
-	transform: translate(-160px, -177px);
+	/*transform: translate(-160px, -177px);*/
 	
 	cursor: pointer;
 }

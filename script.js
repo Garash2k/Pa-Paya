@@ -18,7 +18,9 @@
 	audio.play();
 
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
-	startSprigganChase(initialSpriggan);
+	window.addEventListener('load', function() {
+		startSprigganChase(initialSpriggan);
+	});
 	
 	function startSprigganChase(spriggan) {
 		function setSprigganPos(sprigganPos, additionalTransform) {
@@ -96,7 +98,7 @@
 			setTimeout(function() {
 				spriggan.style.transition = "transform " + durationMS + "ms linear";
 				setSprigganPos(posInitialDesti.Destination, posInitialDesti.AdditionalTransform);
-			}, 1);
+			}, 50);
 		}
 		
 		//Setup recursion.
