@@ -24,21 +24,23 @@ html, body, .art-container
 }
 
 /* spriggan chase */
-#spriggan-chase {
+.spriggan-chase {
 	position: absolute;
 	top: 0;
 	left: 0;
+	
+	cursor: pointer;
 }
-#spriggan
+.spriggan
 {
 	animation-duration: 0.5s;
 }
-#egg
+.egg
 {
 	animation-duration: 0.3s;
 }
 
-.art, #spriggan, #egg
+.art, .spriggan, .egg
 {
 	animation-name: tilt;
 	animation-iteration-count: infinite;
