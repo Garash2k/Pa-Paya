@@ -39,9 +39,6 @@
 		var posInitial = {x: 0, y: 0};
 		var posDestination = {x: window.innerWidth, y: window.innerHeight};
 		
-		direction = DIRECTION_VERTICAL;
-		isInvert = true;
-		
 		var additionalTransform = "";
 		if (direction === DIRECTION_HORIZONTAL) {
 			if (!isInvert) {
