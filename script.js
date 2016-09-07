@@ -18,9 +18,7 @@
 	audio.play();
 
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
-	setTimeout(function() {
-		startSprigganChase(initialSpriggan);
-	}, 10);
+	startSprigganChase(initialSpriggan);
 	
 	function startSprigganChase(spriggan) {
 		function setSprigganPos(sprigganPos, additionalTransform) {
@@ -84,7 +82,7 @@
 		function doSprigganChase() {
 		
 			//Set random egg
-			var egg = spriggan.getElementsByClassName("egg");
+			var egg = spriggan.getElementsByClassName("egg")[0];
 			egg.src = "egg/egg-" + Math.ceil(Math.random() * NO_EGGS) + ".png";
 			
 			var durationMS = 4000 + 4000 * Math.random();
