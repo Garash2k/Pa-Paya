@@ -16,6 +16,8 @@
 		audio.volume = 0.01;
 
 	audio.play();
+	
+	startTimer();
 
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
 	window.addEventListener('load', function() {
@@ -108,10 +110,17 @@
 		doSprigganChase();
 	}
 	
-	window.createNewSpriggan = createNewSpriggan;
 	function createNewSpriggan() {
 		var newSpriggan = initialSpriggan.cloneNode(true);
 		document.body.appendChild(newSpriggan);
 		startSprigganChase(newSpriggan);
+	}
+
+	function startTimer() {
+		var dateStart = new Date();
+		var timer = document.getElementById("timer");
+		setInterval(function() {
+			timer.innerHTML = ((new Date() - dateStart) / 1000).toFixed(1);
+		}, 50);
 	}
 }) ();
