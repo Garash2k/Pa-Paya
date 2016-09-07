@@ -2,6 +2,7 @@
 html
 {
 	background: url("bg.jpg");
+	font-family: arial;
 }
 
 /* art */
@@ -50,6 +51,12 @@ html, body, .art-container
 @keyframes tilt {
     from {transform: rotate(-7deg);}
     to {transform: rotate(7deg);}
+}
+
+#timer {
+	position: absolute;
+	right: 1em;
+	bottom: 0.5em;
 }
 
 /* debug */
