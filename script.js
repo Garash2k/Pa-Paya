@@ -19,7 +19,7 @@
 
 	var spriggan = document.getElementById("spriggan-chase");	
 	spriggan.addEventListener("transitionend", doSprigganChase);
-	doSprigganChase();
+	setTimeout(doSprigganChase, 10);
 	
 	function setSprigganPos(sprigganPos, additionalTransform) {
 		spriggan.style.transform = "translate(" + sprigganPos.x + "px, " + sprigganPos.y + "px)" + additionalTransform;
@@ -38,9 +38,6 @@
 		
 		var posInitial = {x: 0, y: 0};
 		var posDestination = {x: window.innerWidth, y: window.innerHeight};
-		
-		direction = DIRECTION_VERTICAL;
-		isInvert = true;
 		
 		var additionalTransform = "";
 		if (direction === DIRECTION_HORIZONTAL) {
