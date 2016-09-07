@@ -19,7 +19,7 @@
 
 	var spriggan = document.getElementById("spriggan-chase");	
 	spriggan.addEventListener("transitionend", doSprigganChase);
-	doSprigganChase();
+	setTimeout(doSprigganChase, 10);
 	
 	function setSprigganPos(sprigganPos, additionalTransform) {
 		spriggan.style.transform = "translate(" + sprigganPos.x + "px, " + sprigganPos.y + "px)" + additionalTransform;
