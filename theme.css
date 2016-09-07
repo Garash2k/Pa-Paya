@@ -1,35 +1,57 @@
+/* background */
 html
 {
+	/* TODO: better bg */
 	background-color: pink;
 }
 
+/* art */
 html, body, .art-container
 {
 	height: 100%;
 	margin: 0;
+	overflow: hidden;
 }
-
 .art-container
 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-
 .art
 {
-	animation-name: tilt;
 	animation-duration: 2s;
+	opacity: 0.7;
+}
+
+/* spriggan chase */
+#spriggan-chase {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#spriggan
+{
+	animation-duration: 0.5s;
+}
+#egg
+{
+	animation-duration: 0.3s;
+}
+
+.art, #spriggan, #egg
+{
+	animation-name: tilt;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-timing-function: linear;
 }
-
 @keyframes tilt {
     from {transform: rotate(-7deg);}
     to {transform: rotate(7deg);}
 }
 
+/* debug */
 #audio
 {
 	position: absolute;
