@@ -30,7 +30,7 @@
 		var egg = document.getElementById("egg");
 		egg.src = "egg/egg-" + Math.ceil(Math.random() * NO_EGGS) + ".png";
 		
-		var durationMS = 3000 + 9000 * Math.random();
+		var durationMS = 2000 + 6000 * Math.random();
 		
 		//Set random pos+Orient by direction
 		var direction = Math.random() > 0.5 ? DIRECTION_HORIZONTAL : DIRECTION_VERTICAL
