@@ -35,7 +35,7 @@
 			var posInitialDesti = {};
 			
 			//Set random pos+Orient by direction
-			var direction = Math.random() > 0.5 ? DIRECTION_HORIZONTAL : DIRECTION_VERTICAL
+			var direction = Math.random() > 0.5 ? DIRECTION_HORIZONTAL : DIRECTION_VERTICAL;
 			var isInvert = Math.random() > 0.5;
 			
 			posInitialDesti.Initial = {};
