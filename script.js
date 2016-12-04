@@ -22,7 +22,7 @@
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
 	window.addEventListener('load', function() {
 		startSprigganChase(initialSpriggan);
-		document.getElementById("art").addEventListener("click", toggleMute);
+		document.getElementById("art").addEventListener("click", togglePause);
 	});
 	
 	function startSprigganChase(spriggan) {
@@ -125,7 +125,7 @@
 		}, 50);
 	}
 	
-	function toggleMute() {
+	function togglePause() {
 		if (audio.paused)
 			audio.play();
 		else
