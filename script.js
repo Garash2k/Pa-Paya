@@ -111,6 +111,7 @@
 		//Setup recursion.
 		spriggan.addEventListener("transitionend", doSprigganChase);
 		spriggan.addEventListener('click', createNewSpriggan);
+        spriggan.parentElement.addEventListener('mousewheel', sprigganZoom);
 		
 		doSprigganChase();
 	}
@@ -134,6 +135,18 @@
 			audio.play();
 		else
 			audio.pause();
+	}
+
+	function sprigganZoom(element) {
+        if (element.wheelDelta >= 0) {
+            element.target.width += 20;
+            element.target.height += 20;
+        }
+        else {
+            element.target.width -= 20;
+            element.target.height -= 20;
+        }
+
 	}
 
 	function pressKey(event) {
