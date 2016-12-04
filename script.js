@@ -19,10 +19,14 @@
 	
 	startTimer();
 
+    document.addEventListener('keypress', pressKey);
+
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
+    var templateSpriggan = initialSpriggan.cloneNode(true);
+
 	window.addEventListener('load', function() {
 		startSprigganChase(initialSpriggan);
-		document.getElementById("art").addEventListener("click", toggleMute);
+		document.getElementById("art").addEventListener("click", togglePause);
 	});
 	
 	function startSprigganChase(spriggan) {
@@ -107,12 +111,13 @@
 		//Setup recursion.
 		spriggan.addEventListener("transitionend", doSprigganChase);
 		spriggan.addEventListener('click', createNewSpriggan);
+        spriggan.parentElement.addEventListener('mousewheel', sprigganZoom);
 		
 		doSprigganChase();
 	}
 	
 	function createNewSpriggan() {
-		var newSpriggan = initialSpriggan.cloneNode(true);
+		var newSpriggan = templateSpriggan.cloneNode(true);
 		document.body.appendChild(newSpriggan);
 		startSprigganChase(newSpriggan);
 	}
@@ -125,11 +130,32 @@
 		}, 50);
 	}
 	
-	function toggleMute() {
+	function togglePause() {
 		if (audio.paused)
 			audio.play();
 		else
 			audio.pause();
+	}
+
+	function sprigganZoom(element) {
+        if (element.wheelDelta >= 0) {
+            element.target.width += 20;
+            element.target.height += 20;
+        }
+        else {
+            element.target.width -= 20;
+            element.target.height -= 20;
+        }
+
+	}
+
+	function pressKey(event) {
+		console.log(event.keyCode)
+
+		//Finds the original spriggan
+        if(event.keyCode == 102) //f key
+        	initialSpriggan.children[0].src = "spriggan-inverted.png";
+
 	}
 
 }) ();
