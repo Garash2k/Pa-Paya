@@ -19,14 +19,14 @@
 	
 	startTimer();
 
-    document.addEventListener('keypress', pressKey);
-
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
-    var templateSpriggan = initialSpriggan.cloneNode(true);
+	var templateSpriggan = initialSpriggan.cloneNode(true);
 
 	window.addEventListener('load', function() {
 		startSprigganChase(initialSpriggan);
 		document.getElementById("art").addEventListener("click", togglePause);
+		document.addEventListener('wheel', document_wheel);
+		document.addEventListener('keypress', document_keypress);
 	});
 	
 	function startSprigganChase(spriggan) {
@@ -111,7 +111,6 @@
 		//Setup recursion.
 		spriggan.addEventListener("transitionend", doSprigganChase);
 		spriggan.addEventListener('click', createNewSpriggan);
-        spriggan.parentElement.addEventListener('mousewheel', sprigganZoom);
 		
 		doSprigganChase();
 	}
@@ -137,25 +136,35 @@
 			audio.pause();
 	}
 
-	function sprigganZoom(element) {
-        if (element.wheelDelta >= 0) {
-            element.target.width += 20;
-            element.target.height += 20;
+	function document_wheel(event) {
+		if (!isZoomableTarget(event.target))
+			return;
+		
+        if (event.deltaY <= 0) {
+            event.target.width += 20;
+            event.target.height += 20;
+        } else {
+            event.target.width -= 20;
+            event.target.height -= 20;
         }
-        else {
-            element.target.width -= 20;
-            element.target.height -= 20;
-        }
-
+	}
+	
+	function isZoomableTarget(target) {
+		return target.tagName === 'IMG';
 	}
 
-	function pressKey(event) {
-		console.log(event.keyCode)
-
-		//Finds the original spriggan
-        if(event.keyCode == 102) //f key
-        	initialSpriggan.children[0].src = "spriggan-inverted.png";
-
+	function document_keypress(event) {
+		if (event.code === "KeyF"
+			//compatibility hack
+			|| event.key.toUpperCase() === 'F'
+			|| event.key === 'ﾊ') {
+			var arrSpriggans = document.querySelectorAll('.spriggan-chase');
+			var sprigganToToggle = arrSpriggans[Math.floor(Math.random() * arrSpriggans.length)];
+        	if (!sprigganToToggle.style["filter"])
+				sprigganToToggle.style["filter"] = 'invert(1)';
+			else
+				sprigganToToggle.style["filter"] = "";
+		}
 	}
 
 }) ();
