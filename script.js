@@ -123,4 +123,9 @@
 			timer.innerHTML = ((new Date() - dateStart) / 1000).toFixed(1);
 		}, 50);
 	}
+
 }) ();
+
+function mute() {
+    document.getElementById("audio").volume = 0;
+}
