@@ -22,6 +22,7 @@
 	var initialSpriggan = document.getElementsByClassName("spriggan-chase")[0];
 	window.addEventListener('load', function() {
 		startSprigganChase(initialSpriggan);
+		document.getElementById("art").addEventListener("click", toggleMute);
 	});
 	
 	function startSprigganChase(spriggan) {
@@ -123,9 +124,12 @@
 			timer.innerHTML = ((new Date() - dateStart) / 1000).toFixed(1);
 		}, 50);
 	}
+	
+	function toggleMute() {
+		if (audio.paused)
+			audio.play();
+		else
+			audio.pause();
+	}
 
 }) ();
-
-function mute() {
-    document.getElementById("audio").volume = 0;
-}
