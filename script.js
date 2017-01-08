@@ -6,7 +6,7 @@
 	var DIRECTION_VERTICAL = 1;
 	
 	function isDev() {
-		return window.location.href === "file:///D:/Projets/Pa-Paya/index.html";
+		return window.location.host !== "garash2k.github.io";
 	}
 
 	var audio = document.getElementById("audio");
@@ -24,7 +24,8 @@
 
 	window.addEventListener('load', function() {
 		startSprigganChase(initialSpriggan);
-		document.getElementById("art").addEventListener("click", togglePause);
+		if (isDev())
+			document.getElementById("art").addEventListener("click", togglePause);
 		document.addEventListener('wheel', document_wheel);
 		document.addEventListener('keypress', document_keypress);
 	});
